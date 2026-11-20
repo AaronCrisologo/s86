@@ -1,3 +1,7 @@
-PORT=4000
-MONGO_URI=mongodb+srv: ...
-JWT_SECRET=MovieCatalog
+# .env
+
+- PORT=4000
+
+- MONGO_URI=mongodb+srv: ...
+
+- JWT_SECRET=MovieCatalog
