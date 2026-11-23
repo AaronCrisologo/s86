@@ -13,6 +13,7 @@ const { auth, adminAuth } = require("../auth");
 
 // Admin only
 router.post("/addMovie", auth, adminAuth, addMovie);
+router.patch("/updateMovie/:id", auth, adminAuth, updateMovie);
 router.put("/updateMovie/:id", auth, adminAuth, updateMovie);
 router.put("/updateMovie", auth, adminAuth, updateMovie);
 router.delete("/deleteMovie/:id", auth, adminAuth, deleteMovie);
@@ -22,7 +23,7 @@ router.delete("/deleteMovie", auth, adminAuth, deleteMovie);
 router.get("/getMovies", getAllMovies);
 router.get("/getMovie/:id", getMovieById);
 router.get("/getMovie", getMovieById);
-router.post("/addComment", auth, addMovieComment);
+router.post("/addComment/:id", auth, addMovieComment);
 router.get("/getComments", getMovieComments);
 router.get("/getComments/:id", getMovieComments);
 

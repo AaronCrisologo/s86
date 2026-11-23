@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv").config();
 
 // Port Number
@@ -9,6 +10,7 @@ const port = process.env.PORT || 4000;
 const app = express();
 
 // Middlewares
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -25,8 +27,8 @@ db.once("open", () => console.log("Now connected to MongoDB Atlas."));
 const movieRoutes = require("./routes/movie");
 const userRoutes = require("./routes/user");
 
-app.use("/", movieRoutes);
-app.use("/", userRoutes);
+app.use("/movies", movieRoutes);
+app.use("/users", userRoutes);
 
 // 404 handler for unknown routes
 app.use((req, res) => {
